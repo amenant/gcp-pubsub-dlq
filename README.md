@@ -8,7 +8,7 @@ Spring Integration is not mandatory but could help building more complex workflo
 
 ## How to use it?
 Extend `AbstractPubSubListenerWithRetry` and override a few methods.
-See example in [PubSubTopicListener](src/main/com/demo/configuration/PubSubTopicListener)
+See example in [PubSubTopicListener](src/main/java/com/demo/configuration/PubSubTopicListener.java)
 
 Start the [GCP Pub Sub emulator](https://cloud.google.com/pubsub/docs/emulator) to test it.
 
