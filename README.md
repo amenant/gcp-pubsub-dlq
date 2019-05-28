@@ -7,8 +7,11 @@ It's using [Spring Integration](https://spring.io/projects/spring-integration) a
 Spring Integration is not mandatory but could help building more complex workflows.
 
 ## How to use it?
-Extend `AbstractPubSubListenerWithRetry` and override a few methods.
+For the version with Spring Integration, extend `AbstractPubSubListenerWithRetry` and override a few methods.
 See example in [PubSubTopicListener](src/main/java/com/demo/configuration/PubSubTopicListener.java)
+
+For the version without Spring Integration, extend `AbstractVanillaPubSubListenerWithRetry` and override methods.
+See example in [PubSubVanillaTopicListener](src/main/java/com/demo/configuration/PubSubVanillaTopicListener.java)
 
 Start the [GCP Pub Sub emulator](https://cloud.google.com/pubsub/docs/emulator) to test it.
 
@@ -16,7 +19,10 @@ Start the [GCP Pub Sub emulator](https://cloud.google.com/pubsub/docs/emulator) 
 There's an endpoint pushing messages to the main topic.
 
 Try any message and it should be displayed in the standard output (console):
+
 `curl http://localhost:8080/send?message=hello`
+
+`curl http://localhost:8080/send-vanilla?message=hello`
 
 If you try a message starting with 'error', the message will throw a `RuntimeException`, triggering retries until discard.
 

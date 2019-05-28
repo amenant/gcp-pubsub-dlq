@@ -24,6 +24,11 @@ public class TestPubSubController {
         pubSubTemplate.publish("test-topic", message);
     }
 
+    @GetMapping("/send-vanilla")
+    public void publishVanillaMessage(@RequestParam("message") String message) {
+        pubSubTemplate.publish("test-vanilla-topic", message);
+    }
+
     @GetMapping("/read-dlq")
     public List<String> readDlq() {
 
